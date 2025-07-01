@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-step {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 166, 251, 0.4), 0 4px 6px -2px rgba(0, 166, 251, 0.2);
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #FFBC42;
+        }
+        .btn-cta {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(220, 0, 115, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-[#422D6D] text-white">
+
+    <header class="bg-[#422D6D]/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">
+                <span class="text-[#00A6FB]">Tecno</span><span class="text-[#FFBC42]">Life</span>
+            </h1>
+            <a href="#cta" class="bg-[#DC0073] text-white font-bold py-2 px-4 rounded-full hover:bg-[#b80062] transition-colors duration-300 text-sm">Inscreva-se</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center mb-24">
+            <h2 class="text-4xl md:text-6xl font-black mb-4 leading-tight">🚀 Transforme seu Futuro com Código</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300">Na TecnoLife, acreditamos que a programação é uma ferramenta de mudança. Nossa missão é te capacitar com habilidades práticas para as demandas reais do mercado de tecnologia.</p>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="text-3xl font-bold text-center mb-12">Nosso Ecossistema de Aprendizado</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white/10 p-6 rounded-lg shadow-xl">
+                    <h4 class="text-xl font-bold text-center mb-4 text-[#FFBC42]">Demanda de Mercado por Habilidade</h4>
+                     <p class="text-center text-sm text-gray-300 mb-4">Visualizamos a relevância de cada área de estudo no mercado atual. A demanda por desenvolvedores Web (Front-End) e especialistas em dados (Python/MySQL) continua a crescer exponencialmente.</p>
+                    <div class="chart-container">
+                        <canvas id="marketDemandChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg shadow-xl">
+                    <h4 class="text-xl font-bold text-center mb-4 text-[#FFBC42]">Composição do Curso Front-End</h4>
+                     <p class="text-center text-sm text-gray-300 mb-4">Nosso curso essencial é perfeitamente balanceado para construir uma base sólida, distribuindo o aprendizado igualmente entre as três tecnologias fundamentais da web.</p>
+                    <div class="chart-container">
+                        <canvas id="courseCompositionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="text-3xl font-bold text-center mb-12">Sua Trilha de Conhecimento</h3>
+            <p class="text-center text-lg max-w-2xl mx-auto text-gray-300 mb-12">Sugerimos uma jornada de aprendizado clara para maximizar seu potencial, começando com uma base sólida e avançando para especializações poderosas.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flowchart-step bg-[#00A6FB] p-6 rounded-lg shadow-lg text-center w-full md:w-1/4">
+                    <div class="text-4xl mb-2">①</div>
+                    <h4 class="text-lg font-bold">Front-End Essencial</h4>
+                    <p class="text-sm">HTML, CSS, JS</p>
+                </div>
+                <div class="flowchart-arrow hidden md:block">→</div>
+                 <div class="flowchart-arrow md:hidden">↓</div>
+                <div class="flex flex-col space-y-8 w-full md:w-auto">
+                    <div class="flowchart-step bg-white/20 p-6 rounded-lg shadow-lg text-center w-full">
+                        <div class="text-4xl mb-2">②</div>
+                        <h4 class="text-lg font-bold text-[#FFBC42]">Javascript Puro</h4>
+                        <p class="text-sm">Domine a Interatividade</p>
+                    </div>
+                    <div class="flowchart-step bg-white/20 p-6 rounded-lg shadow-lg text-center w-full">
+                        <div class="text-4xl mb-2">③</div>
+                        <h4 class="text-lg font-bold text-[#FFBC42]">Python & MySQL</h4>
+                        <p class="text-sm">Domine os Dados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="text-3xl font-bold text-center mb-12">Além dos Cursos: Soluções Prontas</h3>
+            <p class="text-center text-lg max-w-2xl mx-auto text-gray-300 mb-12">Aplicamos nosso conhecimento para construir soluções robustas e personalizadas que impulsionam negócios.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                    <div class="text-5xl mb-4">🛒</div>
+                    <h4 class="font-bold text-lg">Lojas Online</h4>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                    <div class="text-5xl mb-4">🖼</div>
+                    <h4 class="font-bold text-lg">Portfólios Digitais</h4>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                    <div class="text-5xl mb-4">🎓</div>
+                    <h4 class="font-bold text-lg">Sistemas Escolares</h4>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg hover:bg-white/20 transition-colors duration-300">
+                    <div class="text-5xl mb-4">🏪</div>
+                    <h4 class="font-bold text-lg">Sistemas de Mercado</h4>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cta" class="bg-gradient-to-r from-[#00A6FB] to-[#DC0073] p-12 rounded-lg text-center shadow-2xl">
+            <h3 class="text-4xl font-black mb-4">🔥 Vagas Limitadas! Sua Jornada Começa Agora.</h3>
+            <p class="text-lg mb-8">Não perca a chance de se tornar um profissional de tecnologia requisitado. As inscrições estão abertas!</p>
+            <a href="https://chat.whatsapp.com/JVRkFSlWor282senVlhNQE" target="_blank" class="btn-cta bg-white text-[#DC0073] font-bold text-xl py-4 px-10 rounded-full inline-block">
+                GARANTA SUA VAGA
+            </a>
+            <p class="text-sm mt-4 text-white/80">Por Cláudio & Aniceto</p>
+        </section>
+
+    </main>
+    
+    <footer class="text-center p-6 text-gray-400 text-sm">
+        <p>TecnoLife - Programando o seu sucesso.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            const max = 16;
+            if (label.length <= max) return label;
+            
+            const words = label.split(' ');
+            let currentLine = '';
+            const lines = [];
+            
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > max) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine += ' ' + word;
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const chartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#FFFFFF'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: '#FFFFFF' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                x: {
+                    ticks: { color: '#FFFFFF' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                }
+            }
+        };
+
+        const marketDemandCtx = document.getElementById('marketDemandChart').getContext('2d');
+        new Chart(marketDemandCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Front-End Essencial', 'Javascript Puro', 'Python Puro', 'Banco de Dados MySQL'].map(wrapLabel),
+                datasets: [{
+                    label: 'Demanda de Mercado (Índice)',
+                    data: [90, 80, 95, 85],
+                    backgroundColor: [
+                        '#00A6FB',
+                        '#FFBC42',
+                        '#DC0073',
+                        '#00d4a1'
+                    ],
+                    borderColor: '#422D6D',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions
+        });
+
+        const courseCompositionCtx = document.getElementById('courseCompositionChart').getContext('2d');
+        new Chart(courseCompositionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['HTML', 'CSS', 'Javascript'],
+                datasets: [{
+                    label: 'Composição do Curso',
+                    data: [33.3, 33.3, 33.4],
+                    backgroundColor: [
+                        '#00A6FB',
+                        '#FFBC42',
+                        '#DC0073'
+                    ],
+                    borderColor: '#422D6D',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: '#FFFFFF'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
